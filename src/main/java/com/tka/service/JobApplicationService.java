@@ -42,6 +42,7 @@ public class JobApplicationService {
 				.orElseThrow(() -> new ResourceNotFoundException("Job not found"));
 		User user = userRepository.findById(dto.getUserId())
 				.orElseThrow(() -> new ResourceNotFoundException("User not found"));
+		
 		JobApplication application = new JobApplication();
 		application.setJob(job);
 		application.setUser(user);

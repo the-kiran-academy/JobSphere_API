@@ -32,7 +32,8 @@ public class Mapper {
 		dto.setCompany(mapToCompanyResponseDTO(job.getCompany()));
 		dto.setCategory(mapToCategoryResponseDTO(job.getCategory()));
 		dto.setLocation(mapToLocationResponseDTO(job.getLocation()));
-		dto.setSalaryRange(job.getSalaryRange());
+		dto.setMinSalary(job.getMinSalary());
+		dto.setMaxSalary(job.getMaxSalary());
 		dto.setEmploymentType(job.getEmploymentType().name());
 		dto.setPostedBy(mapToUserResponseDTO(job.getPostedBy()));
 		dto.setPostedAt(job.getPostedAt());

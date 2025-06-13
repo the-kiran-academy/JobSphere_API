@@ -10,7 +10,8 @@ public class JobResponseDTO {
     private CompanyResponseDTO company;
     private CategoryResponseDTO category;
     private LocationResponseDTO location;
-    private String salaryRange;
+    private Double minSalary;
+    private Double maxSalary;
     private String employmentType;
     private UserResponseDTO postedBy;
     private LocalDateTime postedAt;
@@ -70,15 +71,25 @@ public class JobResponseDTO {
         this.location = location;
     }
 
-    public String getSalaryRange() {
-        return salaryRange;
-    }
+    
 
-    public void setSalaryRange(String salaryRange) {
-        this.salaryRange = salaryRange;
-    }
+    public Double getMinSalary() {
+		return minSalary;
+	}
 
-    public String getEmploymentType() {
+	public void setMinSalary(Double minSalary) {
+		this.minSalary = minSalary;
+	}
+
+	public Double getMaxSalary() {
+		return maxSalary;
+	}
+
+	public void setMaxSalary(Double maxSalary) {
+		this.maxSalary = maxSalary;
+	}
+
+	public String getEmploymentType() {
         return employmentType;
     }
 

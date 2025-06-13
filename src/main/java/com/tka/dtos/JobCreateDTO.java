@@ -16,7 +16,8 @@ public class JobCreateDTO {
 	private Long categoryId;
 	@NotNull
 	private Long locationId;
-	private String salaryRange;
+	private Double minSalary;
+	private Double maxSalary;
 	@NotNull
 	private String employmentType;
 	private List<String> skillNames;
@@ -70,12 +71,20 @@ public class JobCreateDTO {
 		this.locationId = locationId;
 	}
 
-	public String getSalaryRange() {
-		return salaryRange;
+	public Double getMinSalary() {
+		return minSalary;
 	}
 
-	public void setSalaryRange(String salaryRange) {
-		this.salaryRange = salaryRange;
+	public void setMinSalary(Double minSalary) {
+		this.minSalary = minSalary;
+	}
+
+	public Double getMaxSalary() {
+		return maxSalary;
+	}
+
+	public void setMaxSalary(Double maxSalary) {
+		this.maxSalary = maxSalary;
 	}
 
 	public String getEmploymentType() {

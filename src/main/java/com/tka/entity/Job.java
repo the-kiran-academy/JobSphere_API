@@ -41,7 +41,8 @@ public class Job {
     @JoinColumn(name = "location_id")
     private Location location;
 
-    private String salaryRange;
+    private Double minSalary;
+    private Double maxSalary;
 
     @Enumerated(EnumType.STRING)
     private EmploymentType employmentType;
@@ -119,12 +120,22 @@ public class Job {
 		this.location = location;
 	}
 
-	public String getSalaryRange() {
-		return salaryRange;
+	
+
+	public Double getMinSalary() {
+		return minSalary;
 	}
 
-	public void setSalaryRange(String salaryRange) {
-		this.salaryRange = salaryRange;
+	public void setMinSalary(Double minSalary) {
+		this.minSalary = minSalary;
+	}
+
+	public Double getMaxSalary() {
+		return maxSalary;
+	}
+
+	public void setMaxSalary(Double maxSalary) {
+		this.maxSalary = maxSalary;
 	}
 
 	public EmploymentType getEmploymentType() {
