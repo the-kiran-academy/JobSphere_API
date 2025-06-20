@@ -1,0 +1,1279 @@
+{
+	"info": {
+		"_postman_id": "a29d9813-637c-4d29-b242-2ce710f652b8",
+		"name": "Job Portal API",
+		"description": "Postman collection for Job Portal REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4468909"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register User As Job Seeker",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"dummy@gmail.com\",\r\n    \"password\": \"dummy123\",\r\n    \"role\": \"EMPLOYER\",\r\n    \"firstName\": \"Dummy\",\r\n    \"lastName\": \"Chadar\",\r\n    \"phone\": \"1234567891\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User As Employeer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"employer@example.com\",\r\n  \"password\": \"EmployerPass123\",\r\n  \"role\": \"EMPLOYER\",\r\n  \"firstName\": \"Jane\",\r\n  \"lastName\": \"Smith\",\r\n  \"phone\": \"9876543210\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ram@gmail.com\",\r\n    \"password\": \"ram123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"updated@example.com\",\r\n    \"password\": \"password123\",\r\n    \"role\": \"JOB_SEEKER\",\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Smith\",\r\n    \"phone\": \"9876543210\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Employers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/all/employers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"all",
+								"employers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Job Seekers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/all/jobseekers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"all",
+								"jobseekers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/users/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"users",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Seeker Profiles",
+			"item": [
+				{
+					"name": "Create Job Seeker Profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"resumeUrl\": \"http://example.com/resume.pdf\",\r\n    \"bio\": \"Experienced developer\",\r\n    \"education\": \"BSc Computer Science\",\r\n    \"experience\": \"2 years at Tech Corp\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/job-seeker-profiles",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"job-seeker-profiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job Seeker Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/job-seeker-profiles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"job-seeker-profiles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job Seeker Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userId\":1,\"resumeUrl\":\"http://example.com/new-resume.pdf\",\"bio\":\"Senior developer\",\"education\":\"MSc Computer Science\",\"experience\":\"3 years at Tech Corp\"}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/job-seeker-profiles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"job-seeker-profiles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job Seeker Profile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/job-seeker-profiles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"job-seeker-profiles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employer Profiles",
+			"item": [
+				{
+					"name": "Create Employer Profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"companyId\": 2,\r\n    \"department\": \"HR\",\r\n    \"position\": \"Recruiter\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employer-profiles",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employer-profiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employer Profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employer-profiles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employer-profiles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Employer Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"companyId\": 2,\r\n    \"department\": \"HR\",\r\n    \"position\": \"Senior Recruiter\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/employer-profiles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employer-profiles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Employer Profile",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/employer-profiles/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"employer-profiles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "Create Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Infosys\",\r\n    \"description\": \"Innovative tech solutions\",\r\n    \"website\": \"https://infosys.com\",\r\n    \"location\": \"India\",\r\n    \"logoUrl\": \"https://infosys.com/logo.png\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/companies",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/companies/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"companies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tech Corp Updated\",\r\n    \"description\": \"Advanced tech solutions\",\r\n    \"website\": \"https://techcorp.com\",\r\n    \"location\": \"San Francisco\",\r\n    \"logoUrl\": \"https://techcorp.com/new-logo.png\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/companies/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"companies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/companies/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"companies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/companies",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"companies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "Create Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 1,\r\n    \"title\": \"Java Developer\",\r\n    \"description\": \"Develop web applications in Java\",\r\n    \"companyId\": 1,\r\n    \"categoryId\": 1,\r\n    \"locationId\": 1,\r\n    \"minSalary\": 25000,\r\n    \"maxSalary\": 35000,\r\n    \"employmentType\": \"FULL_TIME\",\r\n    \"skillNames\": [\r\n        \"Java\",\r\n        \"angular\"\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/jobs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jobs/1?userId=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs",
+								"1"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Jobs (Paginated)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jobs?page=0&size=10&sort=postedAt,desc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "sort",
+									"value": "postedAt,desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userId\":2,\"title\":\"Senior Software Engineer\",\"description\":\"Lead web development projects\",\"companyId\":1,\"categoryId\":1,\"locationId\":1,\"salaryRange\":\"$120,000 - $150,000\",\"employmentType\":\"FULL_TIME\"}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/jobs/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jobs/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recommended Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jobs/recommended?userId=1&page=0&size=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs",
+								"recommended"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job Analytics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jobs/1/analytics",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs",
+								"1",
+								"analytics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By Title",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ram@gmail.com\",\r\n    \"password\": \"ram123\",\r\n    \"role\": \"EMPLOYER\",\r\n    \"firstName\": \"Ram\",\r\n    \"lastName\": \"Chadar\",\r\n    \"phone\": \"1234567890\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/jobs/search/title?keyword=developer&page=0&size=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs",
+								"search",
+								"title"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "developer"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By location",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"ram@gmail.com\",\r\n    \"password\": \"ram123\",\r\n    \"role\": \"EMPLOYER\",\r\n    \"firstName\": \"Ram\",\r\n    \"lastName\": \"Chadar\",\r\n    \"phone\": \"1234567890\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/jobs/search/location?location=pune&page=0&size=10   ",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs",
+								"search",
+								"location"
+							],
+							"query": [
+								{
+									"key": "location",
+									"value": "pune"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10   "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By salary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jobs/search/salary?minSalary=17777&maxSalary=25678333&page=0&size=10  ",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs",
+								"search",
+								"salary"
+							],
+							"query": [
+								{
+									"key": "minSalary",
+									"value": "17777"
+								},
+								{
+									"key": "maxSalary",
+									"value": "25678333"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10  "
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By Skills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/jobs/search/skills?skillNames=react&skillNames=spring&page=0&size=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"jobs",
+								"search",
+								"skills"
+							],
+							"query": [
+								{
+									"key": "skillNames",
+									"value": "react"
+								},
+								{
+									"key": "skillNames",
+									"value": "spring"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Applications",
+			"item": [
+				{
+					"name": "Create Job Application",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobId\": 1,\r\n    \"userId\": 1,\r\n    \"coverLetter\": \"Excited to apply for this role\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/applications",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"applications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job Application by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/applications/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"applications",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Applications by Job",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/applications?jobId=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"applications"
+							],
+							"query": [
+								{
+									"key": "jobId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Applications by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/applications?userId=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"applications"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Application Status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/applications/1/status?status=ACCEPTED&comment=Strong candidate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"applications",
+								"1",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "ACCEPTED"
+								},
+								{
+									"key": "comment",
+									"value": "Strong candidate"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Skills",
+			"item": [
+				{
+					"name": "Create Skill",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Java\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/skills",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"skills"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Skill by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/skills/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"skills",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Skills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/skills",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"skills"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Job Skills",
+			"item": [
+				{
+					"name": "Add Skill to Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"jobId\": 1,\r\n    \"skillId\": 3\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/job-skills",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"job-skills"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Skills",
+			"item": [
+				{
+					"name": "Add Skill to User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": 3,\r\n    \"skillId\": 2\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user-skills",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user-skills"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Software Development\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categories/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locations",
+			"item": [
+				{
+					"name": "Create Location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": \"Pune\",\r\n    \"state\": \"Maharashtra\",\r\n    \"country\": \"India\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/locations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Location by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/locations/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"locations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Locations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/locations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"locations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "Get User Notifications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/notifications?userId=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"notifications"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8091/api"
+		}
+	]
+}
